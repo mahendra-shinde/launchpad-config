@@ -1,0 +1,30 @@
+apiVersion: launchpad.mirantis.com/v1beta3
+kind: DockerEnterprise
+metadata:
+  name: ucp-kube
+spec:
+  ucp:
+    installFlags:
+    - --admin-username=admin
+    - --admin-password=passw0rd!
+    - --default-node-orchestrator=kubernetes
+  hosts:
+  ## Public IP address of Manager Node
+  ## you can use azure-vm, aws ec2 instance or local virtual-machine
+  - address: 137.116.144.175
+    role: manager
+    ssh:
+      user: mahendra
+      keyPath: .ssh/id_rsa
+  ## Public IP address of worker Node
+  - address: 168.63.254.234
+    role: worker
+    ssh:
+      user: mahendra
+      keyPath: .ssh/id_rsa
+## Public IP address of worker Node
+#  - address: 168.63.XXX.XXX
+#    role: dtr
+#    ssh:
+#      user: mahendra
+#      keyPath: .ssh/id_rsa
