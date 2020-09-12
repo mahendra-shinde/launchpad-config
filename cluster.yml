@@ -11,20 +11,19 @@ spec:
   hosts:
   ## Public IP address of Manager Node
   ## you can use azure-vm, aws ec2 instance or local virtual-machine
-  - address: 137.116.144.175
+  - address: MasterNode
     role: manager
     ssh:
       user: mahendra
       keyPath: .ssh/id_rsa
   ## Public IP address of worker Node
-  - address: 168.63.254.234
+  - address: node1
     role: worker
     ssh:
       user: mahendra
       keyPath: .ssh/id_rsa
-## Public IP address of worker Node
-#  - address: 168.63.XXX.XXX
-#    role: dtr
-#    ssh:
-#      user: mahendra
-#      keyPath: .ssh/id_rsa
+  - address: node2
+    role: dtr
+    ssh:
+      user: mahendra
+      keyPath: .ssh/id_rsa

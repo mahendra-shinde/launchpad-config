@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "value": "mahendra" // TODO: Fill in parameter value
+        },
+        "publicKey": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDTBaLva9A+3+S+mOo2+zh7kHj89GAB9nmwBn/L9mtu0QU5Ef/+yoAzB7HJyl6JYrgscgaKC2ea4y1POfcxdvkPrWq4r92ji94UnR6tr4rgx7CdxNOeRYGor57Ssfbyw6pP/eTNqzEyxsQHItI63F6QivTM1OvXJXDo08zBdSriKdV8K7XtTs3LLd2ZAluac+g9ySrdXC666Uck6zQQCEHl9uuDYC/EWUl3hpiU/u7Ogyz5VrFMYIh1C69QONSo5k02IinCQRBsm7eeysTv0JC3CoLqGZkGRXbjJNwBxViKHCoj1GvIu+IMu7dCr4WHP4WFRNKUeVJeCDREEgVbAMjAjpY4Ns/BEbsgpIEJEk+l7MS4SYDq33a39aof5LkMsxIznRnE7ZBP5lRdENdxchOTZRjttr+1psCC0huorDtuyzohHb/dKTbUWBjS2flMsPCi3XyJn3jqbAUjfVKeQfbIU0f/XRk8nqhwxmYCfVL/8TKIrYa5oh4HB28FXr1+3mk= mahendra" 
+        },
+        "cluster-dns-prefix": {
+            "value": "dockeree0123"
+        },
+        "master-vm-size": {
+            "value": "Standard_D2ds_v4" 
+        },
+        "network-ip-range": {
+            "value": "10.0.0.0/16" 
+        },
+        "subnet-ip-range": {
+            "value": "10.0.0.0/24" 
+        }
+    }
+}
