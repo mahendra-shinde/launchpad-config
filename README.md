@@ -142,3 +142,17 @@
     ```
     $ ./launchpad-linux-x64 apply
     ```
+
+13. After LaunchPad completes the Setup, try log-in into UCP.
+    https://[PUBLIC-IP-OF-MASTERNODE]/
+
+    Use Credentials from `cluster.yml`
+
+14. To Setup Docker Trusted Registry (Private Container Registry), SSH into Worker node 2 then try commands:
+
+    ```
+    $ sudo docker run -it --rm docker/dtr install --ucp-url https://masternode --ucp-insecure-tls
+    UCP Username: admin
+    UCP Password: passw0rd!
+    UCP Node for Installation: node2
+    ```

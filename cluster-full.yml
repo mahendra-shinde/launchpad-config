@@ -1,0 +1,69 @@
+apiVersion: launchpad.mirantis.com/v1beta3
+kind: DockerEnterprise
+metadata:
+  name: launchpad-ucp
+spec:
+  hosts:
+  - address: 10.0.0.1
+    role: manager
+    ssh:
+      user: root
+      port: 22
+      keyPath: ~/.ssh/id_rsa
+    privateInterface: eth0
+    environment:
+      http_proxy: http://example.com
+      NO_PROXY: 10.0.0.*
+    engineConfig:
+      debug: true
+      log-opts:
+        max-size: 10m
+        max-file: "3"
+  - address: 10.0.0.2
+    role: worker
+    winRM:
+      user: Administrator
+      password: abcd1234
+      port: 5986
+      useHTTPS: true
+      insecure: false
+      useNTLM: false
+      caCertPath: ~/.certs/cacert.pem
+      certPath: ~/.certs/cert.pem
+      keyPath: ~/.certs/key.pem
+  - address: 10.0.0.3
+    role: dtr
+    ssh:
+      user: root
+      port: 22
+      keyPath: ~/.ssh/id_rsa
+  ucp:
+    version: "3.3.0"
+    imageRepo: "docker.io/docker"
+    installFlags:
+    - --admin-username=admin
+    - --admin-password=orcaorcaorca
+    licenseFilePath: ./docker-enterprise.lic
+    configFile: ./ucp-config.toml
+    configData: |-
+      [scheduling_configuration]
+        default_node_orchestrator = "kubernetes"
+    cloud:
+      provider: azure
+      configFile: ~/cloud-provider.conf
+      configData: |-
+        [Global]
+        region=RegionOne
+  dtr:
+    version: 2.8.1
+    imageRepo: "docker.io/docker"
+    installFlags:
+    - --dtr-external-url dtr.example.com
+    - --ucp-insecure-tls
+    replicaConfig: sequential
+  engine:
+    version: "19.03.8"
+    channel: stable
+    repoURL: https://repos.mirantis.com
+    installURLLinux: https://get.mirantis.com/
+    installURLWindows: https://get.mirantis.com/install.ps1

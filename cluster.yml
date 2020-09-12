@@ -6,6 +6,7 @@ spec:
   ucp:
     installFlags:
     - --admin-username=admin
+    - --force-minimums
     - --admin-password=passw0rd!
     - --default-node-orchestrator=kubernetes
   hosts:
