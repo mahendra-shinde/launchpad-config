@@ -6,25 +6,26 @@ spec:
   ucp:
     installFlags:
     - --admin-username=admin
+    - --san=dockeree0123.southeastasia.cloudapp.azure.com
     - --force-minimums
     - --admin-password=passw0rd!
     - --default-node-orchestrator=kubernetes
   hosts:
   ## Public IP address of Manager Node
   ## you can use azure-vm, aws ec2 instance or local virtual-machine
-  - address: MasterNode
+  - address: 40.65.129.216
     role: manager
     ssh:
       user: mahendra
       keyPath: .ssh/id_rsa
   ## Public IP address of worker Node
-  - address: node1
+  - address: 52.139.198.208
     role: worker
     ssh:
       user: mahendra
       keyPath: .ssh/id_rsa
-  - address: node2
-    role: dtr
+  - address: 52.139.207.59
+    role: worker
     ssh:
       user: mahendra
       keyPath: .ssh/id_rsa
